@@ -1,0 +1,85 @@
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: #1e1e1e;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  &Header{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-size: 24px;
+}
+
+.subText {
+  font-size: 13px;
+  margin: auto 0;
+  text-align: center;
+  font-style: normal;
+  line-height: 1.26875rem;
+  display: inline-flex;
+  padding: 0.125rem 0.75rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  white-space: nowrap;
+  vertical-align: baseline;
+  color: #fff;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff9800, #ff3d00, #ffd700);
+  box-shadow: 0 4px 10px rgba(255, 152, 0, 0.5); // Soft glow effect
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #222222;
+  filter: brightness(140%);
+}
+
+.changePositive {
+  color: var(--success);
+}
+
+.changeNegative {
+  color: var(--danger);
+}
+
+.explorerLink {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: end;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
