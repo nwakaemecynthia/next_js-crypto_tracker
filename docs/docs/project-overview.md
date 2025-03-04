@@ -6,10 +6,14 @@ sidebar_label: 📌 Project Overview
 
 Welcome to the **Crypto Price Tracker** documentation! This project is a sleek and efficient cryptocurrency price tracking application built with **Next.js**, **React Query**, and **SCSS**. It allows users to monitor real-time cryptocurrency prices with features such as live updates, a search function, and a currency converter.
 
+### 🎉 User Interface (UI)
+![Description](/img/sample_ui.png)
+
+
 ### 🌟 Features
 ✅ Fetches real-time prices for **top 5 cryptocurrencies** from CoinGecko API  
 ✅ Allows users to **search** for specific cryptocurrencies  
-✅ **Manual refresh** button to update prices instantly  
+✅ **Manual refresh** button to update prices instantly  as a Floating Action Button (FAB)
 ✅ **Error handling** for API failures  
 ✅ A **beautiful and responsive UI** using SCSS  
 ✅ **React Query caching** for performance optimization
