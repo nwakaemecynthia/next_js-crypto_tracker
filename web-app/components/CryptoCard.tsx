@@ -11,7 +11,7 @@ const CryptoCard = ({data, currencySymbol}: IProps) => (
   <div className={styles.card}>
     <div className={styles.cardHeader}>
       <div style={{display: "inline-flex", gap: "5px"}}>
-        <Image src={data.image} alt={data.name} width={40} height={40} priority/>
+        <Image src={data.image} alt={data.name} width={35} height={35} priority/>
         <h2 className={styles.title}>
           {data.name} ({data.symbol.toUpperCase()})
         </h2>

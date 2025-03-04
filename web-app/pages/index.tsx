@@ -31,6 +31,7 @@ const Home = () => {
 
   const handleRefresh = async () => {
     setSearch('');
+    window.scrollTo({top: 0, behavior: 'smooth'});
     await refetch();
   }
 
@@ -40,28 +41,39 @@ const Home = () => {
 
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <Image src="/logo.svg" alt="Logo" width={40} height={40} priority />
-        <h1 style={{margin: "auto 0"}}>Crypto Tracker</h1>
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <div className={`${styles.flex} ${styles.justifyBetween}`}>
+          <div className={styles.flex}>
+            <Image src="/logo.svg" alt="Logo" width={35} height={35} priority />
+            <h1 style={{margin: "auto 0"}}>Crypto Tracker</h1>
+          </div>
+            <input className={styles.searchInput}
+                   type="text"
+                   placeholder="Search for a coin..."
+                   value={search}
+                   onChange={(e) => setSearch(e.target.value)}
+            />
+        </div>
+        <div className={`${styles.flex} ${styles.flexEnd}`}>
+          <CurrencyDropdown selectedCurrency={selectedCurrency}
+                            onSelect={data => setSelectedCurrency(data.toUpperCase())}/>
+        </div>
+
+
+        {isLoading && <AppLoader/>}
+        {errorMessage && <p>Error fetching data</p>}
+        <div className={styles.gridContainer}>
+          {filteredData?.slice(0, 5).map(coin => (
+            <CryptoCard key={coin.id} currencySymbol={currency.symbol ?? "$"} data={coin} />
+          ))}
+        </div>
+        <button className={styles.fab} onClick={handleRefresh}>
+          <Image src="/refresh.svg" alt="Refresh" width={24} height={24} />
+        </button>
       </div>
-      <CurrencyDropdown selectedCurrency={selectedCurrency}
-                        onSelect={data => setSelectedCurrency(data.toUpperCase)}/>
-      <input className={styles.searchInput}
-             type="text"
-             placeholder="Search for a coin..."
-             value={search}
-             onChange={(e) => setSearch(e.target.value)}
-      />
-
-      <button className={styles.button} onClick={handleRefresh}>Refresh</button>
-
-      {isLoading && <AppLoader/>}
-      {errorMessage && <p>Error fetching data</p>}
-      {filteredData?.slice(0, 5).map(coin => (
-        <CryptoCard key={coin.id} currencySymbol={currency.symbol ??  "$"} data={coin} />
-      ))}
-    </div>);
+    </div>
+  );
 }
 
 export default Home;
