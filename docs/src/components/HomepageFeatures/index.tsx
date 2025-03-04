@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_crypto_monitor.svg').default,
     description: (
       <>
-        Get up-to-date cryptocurrency prices from the CoinCap API with seamless
+        Get up-to-date cryptocurrency prices from the CoinGecko API with seamless
         integration and automatic updates.
       </>
     ),

@@ -2,7 +2,7 @@
 
 ## Overview
 This project consists of two main parts:
-1. **Web App (`/web-app/`)** - A Next.js-based cryptocurrency price tracker that fetches live data from the CoinCap API.
+1. **Web App (`/web-app/`)** - A Next.js-based cryptocurrency price tracker that fetches live data from the CoinGecko API.
 2. **Documentation (`/docs/`)** - A Docusaurus-based documentation site providing detailed information about the project.
 
 ---
@@ -64,7 +64,7 @@ yarn build   # Generates a static site for deployment
 
 ## 📌 Features & App Flow
 ### **Web App (`/web-app/`)**
-- Fetches **live cryptocurrency prices** using React Query and the CoinCap API.
+- Fetches **live cryptocurrency prices** using React Query and the CoinGecko API.
 - Displays key crypto **metrics** like market cap, supply, and price change.
 - Includes **search functionality** for easy tracking.
 - Provides a **manual refresh** button to update prices.
@@ -79,7 +79,7 @@ yarn build   # Generates a static site for deployment
 ---
 
 ## 🔗 Additional Notes
-- Ensure you have a **stable internet connection** when fetching data from the CoinCap API.
+- Ensure you have a **stable internet connection** when fetching data from the CoinGecko nCap API.
 - Modify `utils/constants.ts` if you need to change API endpoints.
 - If you encounter broken links in Docusaurus, check `sidebars.js` for incorrect paths.
 

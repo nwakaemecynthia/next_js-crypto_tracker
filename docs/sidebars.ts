@@ -40,13 +40,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
-      id: 'api',
+      id: 'queries',
       label: '🔗 API Reference',
-    },
-    {
-      type: 'doc',
-      id: 'state-management',
-      label: '⚙️ State Management',
     },
     {
       type: 'doc',

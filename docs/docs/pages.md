@@ -10,8 +10,8 @@ sidebar_label: 📄 Pages
 - **Fetches crypto prices** using React Query:
   ```tsx
   const { data, isLoading, refetch } = useQuery<IResponse<ICrypto[]>>({
-    queryKey: ['cryptoPrices'],
-    queryFn: fetchCryptoPrices,
+    queryKey: ['cryptoCoins', selectedCurrency],
+    queryFn: () => fetchCoins(selectedCurrency),
     staleTime: 60000,
   });
   ```
@@ -20,6 +20,6 @@ sidebar_label: 📄 Pages
 - **Shows AppLoader** while fetching
 - **Handles API errors**
 
-➡️ **Next:** Learn about [API Integration](./api.md).
+➡️ **Next:** Learn about [API Integration](./queries).
 
 ---

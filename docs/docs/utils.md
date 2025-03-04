@@ -7,7 +7,7 @@ These utilities help maintain modularity, readability, and reusability within th
 Defines the API URL used throughout the application.
 
 ```ts
-export const API_URL = "https://api.coincap.io/v2/assets";
+export const BASE_API_URL = "https://api.coingecko.com/api/v3";
 ```
 
 ### 2. `enums.ts`
@@ -24,29 +24,42 @@ export enum ResponseType {
 Contains helper functions for formatting numbers and market capitalization.
 
 ```ts
-export const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(num);
+export const formatNumber = (value: number | string | undefined,  decimals = 2) => {
+  if (!value) return 0.00 ;
+
+  const number = typeof value === "string" ? parseFloat(value) : value;
+  const numFormat = Intl.NumberFormat('en-US', {
+    style: "decimal",
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  });
+  return numFormat.format(number);
 };
 
-export const formatMarketCap = (cap: number): string => {
-  return cap >= 1e9
-    ? `$${(cap / 1e9).toFixed(2)}B`
-    : cap >= 1e6
-    ? `$${(cap / 1e6).toFixed(2)}M`
-    : `$${cap}`;
+
+export const formatMarketCap = (num: string) => {
+  const number = parseFloat(num);
+  if (number >= 1e12) return `${(number / 1e12).toFixed(2)}T`;
+  if (number >= 1e9) return `${(number / 1e9).toFixed(2)}B`;
+  if (number >= 1e6) return `${(number / 1e6).toFixed(2)}M`;
+  return `$${formatNumber(num)}`;
 };
 ```
 
-### 4. `query.ts`
-Handles API requests for fetching cryptocurrency prices.
+### 4. `queries.ts`
+Handles API requests for fetching cryptocurrency coins and supported currencies.
 
 ```ts
-import { ICrypto, IResponse } from "@/utils/types";
-
-export const fetchCryptoPrices = async (): Promise<IResponse<ICrypto[]>> => {
-  const res = await fetch('/api/crypto');
+export const fetchCoins = async (currency: string): Promise<IResponse<ICrypto[]>> => {
+  const res = await fetch(`/api/crypto?vs_currency=${currency}`);
   return await res.json();
 };
+
+export const fetchSupportedCurrencies = async (): Promise<IResponse<ICurrency[]>> => {
+  const res = await fetch(`/api/supportedCurrencies`);
+  return await res.json();
+};
+
 ```
 
 ### 5. `types.d.ts`
@@ -60,17 +73,22 @@ type IResponse<T> = {
 
 export interface ICrypto {
   id: string;
-  rank: number;
+  ath: string;
+  atl: string;
   symbol: string;
   name: string;
-  supply: number;
-  maxSupply: number | null;
-  marketCapUsd: number;
-  volumeUsd24Hr: number;
-  priceUsd: number;
-  changePercent24Hr: number;
-  vwap24Hr: number;
-  explorer: string;
+  image: string;
+  current_price: number;
+  market_cap: number;
+  market_cap_rank: number;
+  total_volume: number;
+  high_24h: number;
+  low_24h: number;
+  last_updated: string | number | Date;
+  price_change_percentage_24h: number;
+  circulating_supply: number;
+  total_supply: number | null;
+  max_supply: number | null;
 }
 ```
 ➡️ **Next:** Go back to [Project Overview](./project-overview.md).
