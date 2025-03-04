@@ -64,7 +64,7 @@ const CurrencyDropdown = ({selectedCurrency, onSelect}: IProps) => {
     <div className={styles["dropdown-container"]} ref={dropdownRef}>
       <input
         type="text"
-        placeholder="Search currency..."
+        placeholder="Search / Select currency..."
         value={searchTerm}
         onChange={handleSearch}
         onFocus={() => setIsOpen(true)}

@@ -8,7 +8,13 @@
   min-height: 100vh;
   color: white;
 }
-.card{
+
+.header {
+  display: flex;
+  gap: 5px;
+}
+
+.card {
   width: 100%;
   max-width: 500px;
 }

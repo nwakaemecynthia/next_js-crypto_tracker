@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Image from "next/image";
 import {useQuery} from "@tanstack/react-query";
 
 import {ResponseType} from "@/utils/enums";
@@ -37,7 +38,10 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Crypto Price Tracker</h1>
+      <div className={styles.header}>
+        <Image src="/logo.svg" alt="Logo" width={40} height={40} priority />
+        <h1 style={{margin: "auto 0"}}>Crypto Tracker</h1>
+      </div>
       <CurrencyDropdown selectedCurrency={selectedCurrency}
                         onSelect={data => setSelectedCurrency(data)}/>
       <input className={styles.searchInput}
