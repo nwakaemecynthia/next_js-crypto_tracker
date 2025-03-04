@@ -1,15 +1,15 @@
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import Image from "next/image";
 import {useQuery} from "@tanstack/react-query";
 
 import {ResponseType} from "@/utils/enums";
-import styles from '@/styles/Home.module.scss';
 import {fetchCoins} from "@/utils/queries";
+import styles from '@/styles/Home.module.scss';
+import AppLoader from "@/components/AppLoader";
 import {ICrypto, IResponse} from "@/utils/types";
 import CryptoCard from "@/components/CryptoCard";
-import AppLoader from "@/components/AppLoader";
-import CurrencyDropdown from "@/components/CurrencyDropdown";
 import {currencySymbols} from "@/utils/constants";
+import CurrencyDropdown from "@/components/CurrencyDropdown";
 
 const Home = () => {
   const defaultCurrency = "USD";
@@ -34,7 +34,10 @@ const Home = () => {
     await refetch();
   }
 
-  const currency = currencySymbols[selectedCurrency.toUpperCase()] || currencySymbols[defaultCurrency];
+  const currency = useMemo(() => {
+    return currencySymbols[selectedCurrency] || currencySymbols[defaultCurrency];
+  }, [selectedCurrency, defaultCurrency]);
+
 
   return (
     <div className={styles.container}>
@@ -43,7 +46,7 @@ const Home = () => {
         <h1 style={{margin: "auto 0"}}>Crypto Tracker</h1>
       </div>
       <CurrencyDropdown selectedCurrency={selectedCurrency}
-                        onSelect={data => setSelectedCurrency(data)}/>
+                        onSelect={data => setSelectedCurrency(data.toUpperCase)}/>
       <input className={styles.searchInput}
              type="text"
              placeholder="Search for a coin..."
@@ -56,7 +59,7 @@ const Home = () => {
       {isLoading && <AppLoader/>}
       {errorMessage && <p>Error fetching data</p>}
       {filteredData?.slice(0, 5).map(coin => (
-        <CryptoCard key={coin.id} currencySymbol={currency.symbol} data={coin} />
+        <CryptoCard key={coin.id} currencySymbol={currency.symbol ??  "$"} data={coin} />
       ))}
     </div>);
 }

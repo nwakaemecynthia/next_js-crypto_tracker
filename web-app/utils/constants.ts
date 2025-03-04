@@ -118,5 +118,6 @@ export const currencySymbols: Record<string, { symbol: string; name: string }> =
       "PLN": { "symbol": "zł", "name": "Polish Złoty" },
       "PYG": { "symbol": "₲", "name": "Paraguayan Guaraní" },
       "QAR": { "symbol": "ر.ق", "name": "Qatari Riyal" },
-      "RON": { "symbol": "lei", "name": "Romanian Leu" }
+      "RON": { "symbol": "lei", "name": "Romanian Leu" },
+      "USD": { "symbol": "$", "name": "United States Dollar"},
   }
