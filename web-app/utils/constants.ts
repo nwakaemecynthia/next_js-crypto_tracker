@@ -1,1 +1,45 @@
-export const API_URL = "https://api.coincap.io/v2/assets";
+// export const API_URL = "https://api.coincap.io/v2/assets";
+
+export const BASE_API_URL = "https://api.coingecko.com/api/v3";
+
+export const currencySymbols: Record<string, { symbol: string; name: string }> = {
+  "AED": {"symbol": "د.إ", "name": "United Arab Emirates Dirham"},
+  "AFN": {"symbol": "؋", "name": "Afghan Afghani"},
+  "ALL": {"symbol": "L", "name": "Albanian Lek"},
+  "AMD": {"symbol": "֏", "name": "Armenian Dram"},
+  "ANG": {"symbol": "ƒ", "name": "Netherlands Antillean Guilder"},
+  "AOA": {"symbol": "Kz", "name": "Angolan Kwanza"},
+  "ARS": {"symbol": "$", "name": "Argentine Peso"},
+  "AUD": {"symbol": "$", "name": "Australian Dollar"},
+  "AWG": {"symbol": "ƒ", "name": "Aruban Florin"},
+  "AZN": {"symbol": "₼", "name": "Azerbaijani Manat"},
+  "BAM": {"symbol": "KM", "name": "Bosnia-Herzegovina Convertible Mark"},
+  "BBD": {"symbol": "$", "name": "Barbadian Dollar"},
+  "BDT": {"symbol": "৳", "name": "Bangladeshi Taka"},
+  "BGN": {"symbol": "лв", "name": "Bulgarian Lev"},
+  "BHD": {"symbol": ".د.ب", "name": "Bahraini Dinar"},
+  "BIF": {"symbol": "FBu", "name": "Burundian Franc"},
+  "BMD": {"symbol": "$", "name": "Bermudian Dollar"},
+  "BND": {"symbol": "$", "name": "Brunei Dollar"},
+  "BOB": {"symbol": "Bs.", "name": "Bolivian Boliviano"},
+  "BRL": {"symbol": "R$", "name": "Brazilian Real"},
+  "BSD": {"symbol": "$", "name": "Bahamian Dollar"},
+  "BTN": {"symbol": "Nu.", "name": "Bhutanese Ngultrum"},
+  "BWP": {"symbol": "P", "name": "Botswana Pula"},
+  "BYN": {"symbol": "Br", "name": "Belarusian Ruble"},
+  "BZD": {"symbol": "$", "name": "Belize Dollar"},
+  "CAD": {"symbol": "$", "name": "Canadian Dollar"},
+  "CHF": {"symbol": "CHF", "name": "Swiss Franc"},
+  "CNY": {"symbol": "¥", "name": "Chinese Yuan"},
+  "COP": {"symbol": "$", "name": "Colombian Peso"},
+  "CRC": {"symbol": "₡", "name": "Costa Rican Colón"},
+  "CZK": {"symbol": "Kč", "name": "Czech Koruna"},
+  "DKK": {"symbol": "kr", "name": "Danish Krone"},
+  "EGP": {"symbol": "£", "name": "Egyptian Pound"},
+  "EUR": {"symbol": "€", "name": "Euro"},
+  "GBP": {"symbol": "£", "name": "British Pound"},
+  "INR": {"symbol": "₹", "name": "Indian Rupee"},
+  "JPY": {"symbol": "¥", "name": "Japanese Yen"},
+  "KRW": {"symbol": "₩", "name": "South Korean Won"},
+  "USD": {"symbol": "$", "name": "United States Dollar"}
+}

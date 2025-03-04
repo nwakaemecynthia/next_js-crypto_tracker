@@ -11,7 +11,7 @@ export default function Document() {
         <meta name="title" content="Crypto Tracker - Live Crypto Prices & Insights"/>
         <meta
           name="description"
-          content="Track real-time cryptocurrency prices, market trends, and conversions with the Crypto Tracker app. Powered by CoinCap API."
+          content="Track real-time cryptocurrency prices, market trends, and conversions with the Crypto Tracker app. Powered by CoinGecko API."
         />
       </Head>
       <body>
